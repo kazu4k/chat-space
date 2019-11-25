@@ -2,14 +2,14 @@
   .side__header
     .side__header__box
       .side__header__box__name
-        hahaha
+        = current_user.name
       .side__header__box__link
         .side__header__box__link__edit
           = link_to "#", class: "contents__btn" do
             = icon('far', 'edit')
         .side__header__box__link__cog
-          = link_to "#", class: "contents__btn" do
-            = icon('fas', 'cog')
+          = link_to edit_user_path(current_user) do
+            = fa_icon 'cog', class: 'icon'
 
   .side__main
     .side__main__group
