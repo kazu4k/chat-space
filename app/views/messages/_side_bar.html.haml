@@ -6,16 +6,16 @@
       .side__header__box__link
         .side__header__box__link__edit
           = link_to new_group_path do
-          = icon('far', 'edit', class: 'icon')
+            = icon('far', 'edit', class: 'icon')
         .side__header__box__link__cog
           = link_to edit_user_path(current_user) do
-          = icon('fas', 'cog', class: 'icon')
+            = icon('fas', 'cog', class: 'icon')
 
   .side__main
     - current_user.groups.each do |group|
       .side__main__group
         = link_to group_messages_path(group) do
-        .side__main__group-name
-          = group.name
-        .side__main__message
-          メッセージはまだありません。
+          .side__main__group-name
+            = group.name
+          .side__main__message
+            メッセージはまだありません。
