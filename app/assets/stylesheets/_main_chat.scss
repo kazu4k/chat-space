@@ -36,7 +36,7 @@
     &__thread {
       display: flex;
     }
-    &__text {
+    &__name {
       color: #434a54;
       font-size: 16px;
       font-weight: bold;
@@ -46,7 +46,7 @@
       color: #999999;
       font-size: 12px;
     }
-    &__name {
+    &__text {
       font-size: 14px;
       color: #434a54;
       margin-top: 10px;
@@ -77,7 +77,7 @@
       height: 10px;
       width: 10px;
     }
-    &__send {
+    .form__submit {
       color: #eeeeee;
       background-color: #38aef0;
       width: 100px;
