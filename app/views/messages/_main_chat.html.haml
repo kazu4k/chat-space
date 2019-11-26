@@ -2,19 +2,20 @@
   .main__header
     .main__header__box
       .main__header__title
-        = group.name
+        = @group.name
       .main__header__edit
-        %a.chat-header__edit-btn{ href: edit_chat_group_path(@chat-group-form) } Edit
+        = link_to "Edit", edit_group_path(params[:group_id]), method: :get
     .main__thread
       .main__thread__member
-        = message.user.name
-  .messages
+        - @group.users.each do |user|
+          = user.name
+  .main__space
     = render @messages
   .main__footer
     = form_for [@group, @message] do |f|
-      = f.text_field :content, class: 'text', placeholder: 'type a message'
+      = f.text_field :content, class: 'text', placeholder: 'type a message' do
         .form__mask
           = f.label :image, class: 'form__mask__image' do
             = icon('fas', 'image', class: 'icon-a')
             = f.file_field :image, class: 'input'
-        = f.submit 'Send', class: 'form__submit'
+      = f.submit 'Send', class: 'form__submit'
