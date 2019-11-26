@@ -2,26 +2,19 @@
   .main__header
     .main__header__box
       .main__header__title
-        title
+        = group.name
       .main__header__edit
-        Edit
+        %a.chat-header__edit-btn{ href: edit_chat_group_path(@chat-group-form) } Edit
     .main__thread
       .main__thread__member
-        yahhahahahahahaha
-  .main__space
-    .main__space__box
-      .main__space__thread
-        .main__space__text
-          ghgreger
-        .main__space__date
-          20191122
-      .main__space__name
-        bokkoi
+        = message.user.name
+  .messages
+    = render @messages
   .main__footer
-    .main__footer__form
-      %input{type: "text", class: "text"}
-      %label{class: "input-box__image"}
-        = icon('fas', 'image', class: "icon-a")
-        %input{type: "file", class: "input"}
-    .main__footer__send
-      Send
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'text', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = icon('fas', 'image', class: 'icon-a')
+            = f.file_field :image, class: 'input'
+        = f.submit 'Send', class: 'form__submit'
