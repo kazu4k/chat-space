@@ -13,9 +13,8 @@
 
   .side__main
     - current_user.groups.each do |group|
-      .side__main__group
-        = link_to group_messages_path(group) do
-          .side__main__group-name
-            = group.name
-          .side__main__message
-            = group.show_last_message
+      = link_to group_messages_path(group),class: "link" do
+        .side__main__name
+          = group.name
+        .side__main__message
+          = group.show_last_message

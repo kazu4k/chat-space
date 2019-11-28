@@ -31,7 +31,7 @@
     background-color: #fafafa;
     height: calc(100vh - 190px);
     &__box {
-      padding: 46px 0 0 40px;
+      padding: 46px 40px;
     }
     &__thread {
       display: flex;
@@ -54,37 +54,38 @@
   }
   &__footer {
     background-color: #ddd;
-    height: 55px;
-    padding: 25px 40px;
-    display: flex;
-    justify-content: space-between;
+    height: 90px;
+
     &__form {
-      position: relative;
-      text-align: right;
-      width: 100%;
-    }
-    .text {
-      height: 50px;
-      width: 100%;
-    } 
-    .icon-a {
-      position: absolute;
-      top: 20px;
-      right: 10px;
-    }
-    .input {
-      display: none;
-      height: 10px;
-      width: 10px;
-    }
-    .form__submit {
-      color: #eeeeee;
-      background-color: #38aef0;
-      width: 100px;
-      height: 53px;
-      margin-left: 15px;
-      text-align: center;
-      line-height: 50px;
+      padding: 20px 40px;
+      display: flex;
+
+      &__mask {
+        width: 100%;
+        position: relative;
+        .text {
+          width: 100%;
+          height: 50px;
+        }
+        .form__mask__image {
+          position: absolute;
+          top: 14px;
+          right: 14px;
+          cursor: pointer;
+        }
+        .input {
+          display: none;
+        }
+      }
+      .form__submit {
+        color: #eeeeee;
+        background-color: #38aef0;
+        width: 100px;
+        height: 53px;
+        margin-left: 15px;
+        text-align: center;
+        line-height: 50px;
+      }
     }
   }
 }
