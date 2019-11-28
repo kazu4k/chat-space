@@ -9,13 +9,16 @@
       .main__thread__member
         - @group.users.each do |user|
           = user.name
+
   .main__space
     = render @messages
+
   .main__footer
     = form_for [@group, @message] do |f|
-      = f.text_field :content, class: 'text', placeholder: 'type a message' do
-        .form__mask
+      .main__footer__form
+        .main__footer__form__mask
+          = f.text_field :content, class: 'text', placeholder: 'type a message' 
           = f.label :image, class: 'form__mask__image' do
             = icon('fas', 'image', class: 'icon-a')
             = f.file_field :image, class: 'input'
-      = f.submit 'Send', class: 'form__submit'
+        = f.submit 'Send', class: 'form__submit'
