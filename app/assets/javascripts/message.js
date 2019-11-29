@@ -36,7 +36,9 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.main__space').append(html);
-      $('#message_content').val('');
+      $('.form__submit').click(function(data){
+        $('.message_content')[0].reset();
+      });
       $(".main__space").scrollTop( $(".main__space")[0].scrollHeight );
     })
     .fail(function(data){
