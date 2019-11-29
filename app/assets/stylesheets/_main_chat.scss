@@ -30,6 +30,7 @@
   &__space {
     background-color: #fafafa;
     height: calc(100vh - 190px);
+    overflow: scroll;
     &__box {
       padding: 46px 40px;
     }
@@ -51,6 +52,9 @@
       color: #434a54;
       margin-top: 10px;
     }
+  }
+  &__space::-webkit-scrollbar {
+    display: none;
   }
   &__footer {
     background-color: #ddd;
