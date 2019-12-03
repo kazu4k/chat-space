@@ -1,9 +1,8 @@
 $(function(){
   function buildHTML(message) {
-    console.log(message)
     var content = message.content ? `${ message.content }` : "";
     var img = message.image ? `<img src= ${ message.image }>` : "";
-    var html = `<div class="main__space__box" data-id="${message.id}">
+    var html = `<div class="main__space__box" data-message-id="${message.id}">
                   <div class="main__space__thread">
                     <p class="main__space__name">
                       ${message.user_name}
@@ -21,6 +20,9 @@ $(function(){
                 </div>`
   return html;
   }
+  function scrollFunction () {
+    $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+  };
   $('#new_message').on('submit', function(e){
     e.preventDefault(this);
     var message = new FormData(this);
@@ -36,9 +38,7 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.main__space').append(html);
-      $('.form__submit').click(function(data){
-        $('.message_content')[0].reset();
-      });
+      $('form')[0].reset();
       $(".main__space").scrollTop( $(".main__space")[0].scrollHeight );
     })
     .fail(function(data){
